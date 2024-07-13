@@ -1,0 +1,34 @@
+/* styles.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #010101; /* Black background color */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* 8-column grid */
+    grid-template-rows: 1fr auto; /* Single row taking full height, second row for text */
+    place-items: center; /* Center content both horizontally and vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+.logo {
+    grid-column: 3 / span 4; /* Centered logo, takes up 4 columns starting from column 3 */
+    grid-row: 1 / span 1; /* Occupies the single row */
+    display: flex;
+    justify-content: center; /* Center horizontally within .logo */
+    align-items: center; /* Center vertically within .logo */
+    text-align: center;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+}
+
