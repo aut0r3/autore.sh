@@ -1,34 +1,72 @@
 /* styles.css */
 
+/* Add @font-face for custom font */
+@font-face {
+    font-family: 'MesloLGS-NF-Bold';
+    src: url('https://raw.githubusercontent.com/aut0r3/autore.sh/main/MesloLGS-NF-Bold.ttf') format('truetype'); /* Path to your font file on GitHub */
+}
+
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
-    background-color: #010101; /* Black background color */
+    font-family: 'MesloLGS-NF-Bold', Arial, sans-serif; /* Use the custom font */
+    background-color: #111111;
+    color: #ff2e2e;
 }
 
-.container {
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(8, 1fr); /* 8-column grid */
-    grid-template-rows: 1fr auto; /* Single row taking full height, second row for text */
-    place-items: center; /* Center content both horizontally and vertically */
-    height: 100vh; /* Full viewport height */
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
 }
 
-.logo {
-    grid-column: 3 / span 4; /* Centered logo, takes up 4 columns starting from column 3 */
-    grid-row: 1 / span 1; /* Occupies the single row */
+header {
+    grid-column: 1 / span 8;
     display: flex;
-    justify-content: center; /* Center horizontally within .logo */
-    align-items: center; /* Center vertically within .logo */
-    text-align: center;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100px; /* Set a height for the header */
 }
 
-.logo img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto; /* Center the image horizontally */
+nav ul {
+    display: flex;
 }
 
+nav ul li {
+    margin-left: 2rem; /* Adjust margin for spacing */
+}
+
+nav ul li a {
+    color: #ff2e2e;
+    text-decoration: none;
+    font-family: 'MesloLGS-NF-Bold', monospace; /* Ensure this is set correctly */
+    font-size: 1.2rem;
+    text-transform: uppercase; /* Make text uppercase */
+}
+
+main {
+    grid-column: 1 / span 8;
+}
+
+.content {
+   text-align:center;
+   display:flex;
+   flex-direction:center;
+   justify-content:center;
+   align-items:center;
+   height:auto; 
+   padding-top:auto; 
+}
+
+footer {
+   grid-column: 1 / span 8; 
+   text-align:center; 
+   padding-top:auto; 
+}
+
+/* Responsive styles */
+@media (max-width:768px) {
+   header {flex-direction=column;}
+}
