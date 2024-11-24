@@ -540,33 +540,6 @@ hr {
     margin: calc(var(--gutter) * var(--golden-ratio)) 0;
 }
 
-footer {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: var(--gutter) 0;
-    background-color: rgba(13, 17, 23, 0.95);
-    position: fixed;
-    bottom: -100px;
-    left: 0;
-    right: 0;
-    font-size: calc(1rem / var(--golden-ratio));
-    font-family: 'MesloLGS NF', monospace;
-    text-transform: uppercase;
-    backdrop-filter: blur(8px);
-    transition: bottom 0.3s ease-in-out;
-}
-
-footer.visible {
-    bottom: 0;
-}
-
-.copyleft {
-    display: inline-block;
-    transform: rotate(180deg);
-    font-size: 1.2em;
-    vertical-align: middle;
-    margin-right: 5px;
-}
 
 /* Responsive design */
 @media (max-width: 1024px) {
