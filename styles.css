@@ -230,34 +230,6 @@ hr {
     margin: calc(var(--gutter) * var(--golden-ratio)) 0;
 }
 
-footer {
-    grid-column: 1 / -1; /* Ensure it spans all columns */
-    text-align: center; /* Center the text */
-    padding: 20px 0; /* Adjust padding for spacing (you can use var(--gutter) if preferred) */
-    background-color: #11111; /* Change to a solid dark color for better contrast */
-    color: #ff2e2e; /* Set text color to white for readability */
-    position: fixed; /* Keep it fixed at the bottom */
-    bottom: 100px; /* Start off-screen */
-    left: 0;
-    right: 0;
-    font-size: calc(1rem / var(--golden-ratio)); /* Adjust font size based on golden ratio */
-    font-family: 'MesloLGS NF', monospace; /* Font family */
-    backdrop-filter: blur(8px); /* Blur effect for background */
-    transition: bottom 0.3s ease-in-out; /* Smooth transition for visibility */
-}
-
-footer.visible {
-    bottom: 100; /* Bring footer into view when visible */
-}
-
-.copyleft {
-    display: inline-block;
-    transform: rotate(180deg); /* Rotate if needed */
-    font-size: 1.0em; /* Adjust size as needed */
-    vertical-align: middle; /* Align with text */
-    margin-right: 5px; /* Space between symbol and text */
-}
-
 /* Responsive design adjustments */
 @media (max-width: 768px) {
     footer {
