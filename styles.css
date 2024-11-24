@@ -1,0 +1,625 @@
+/* styles.css */
+
+@font-face {
+    font-family: 'MesloLGS NF';
+    src: url('MesloLGS-NF-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MesloLGS NF';
+    src: url('MesloLGS-NF-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'MesloLGS NF';
+    src: url('MesloLGS-NF-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MesloLGS NF';
+    src: url('MesloLGS-NF-Bold-Italic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+:root {
+    --github-dark: #0d1117;
+    --github-text: #c9d1d9;
+    --github-red: #ff2e2e;
+    --github-link: #58a6ff;
+    --gutter: 20px;
+    --padding: 12px;
+    --golden-ratio: 1.618;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'MesloLGS NF', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background-color: var(--github-dark);
+    color: var(--github-text);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gutter);
+    padding: var(--gutter);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding) 0;
+    background-color: rgba(13, 17, 23, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    height: 80px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: calc(var(--gutter) * var(--golden-ratio));
+}
+
+nav ul li a {
+    color: var(--github-red);
+    text-decoration: none;
+    font-family: 'MesloLGS NF', monospace;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--github-link);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--github-red);
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+main {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gutter);
+    min-height: calc(100vh - 100px);
+    padding-top: 100px;
+}
+
+.content {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+    width: 100%;
+}
+
+.centered-logo {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.markdown-content {
+    grid-column: 2 / 12;
+    padding: calc(var(--padding) * var(--golden-ratio));
+    background-color: rgba(13, 17, 23, 0.7);
+    border-radius: 10px;
+    margin-top: calc(var(--gutter) * var(--golden-ratio));
+    margin-bottom: calc(var(--gutter) * var(--golden-ratio));
+    backdrop-filter: blur(5px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'MesloLGS NF', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--github-red);
+    margin-bottom: var(--gutter);
+}
+
+h1 { font-size: calc(1.618rem * 1.618); }
+h2 { font-size: calc(1.618rem * 1.414); }
+h3 { font-size: calc(1.618rem * 1.236); }
+h4 { font-size: calc(1.618rem * 1.138); }
+h5 { font-size: 1.618rem; }
+h6 { font-size: calc(1.618rem / 1.138); }
+
+p {
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto var(--gutter);
+    color: var(--github-text);
+}
+
+a {
+    color: var(--github-link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul, ol {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto var(--gutter);
+    padding-left: calc(var(--gutter) * var(--golden-ratio));
+}
+
+li {
+    margin-bottom: calc(var(--padding) * var(--golden-ratio));
+}
+
+blockquote {
+    border-left: 4px solid var(--github-red);
+    padding-left: var(--padding);
+    margin-left: 0;
+    font-style: italic;
+    color: var(--github-text);
+}
+
+code {
+    font-family: 'MesloLGS NF', monospace;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: calc(var(--padding) / 2) var(--padding);
+    border-radius: 3px;
+}
+
+pre {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: var(--padding);
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--github-text);
+    margin: calc(var(--gutter) * var(--golden-ratio)) 0;
+}
+
+footer {
+    grid-column: 1 / -1; /* Ensure it spans all columns */
+    text-align: center; /* Center the text */
+    padding: 20px 0; /* Adjust padding for spacing (you can use var(--gutter) if preferred) */
+    background-color: #11111; /* Change to a solid dark color for better contrast */
+    color: #ff2e2e; /* Set text color to white for readability */
+    position: fixed; /* Keep it fixed at the bottom */
+    bottom: 100px; /* Start off-screen */
+    left: 0;
+    right: 0;
+    font-size: calc(1rem / var(--golden-ratio)); /* Adjust font size based on golden ratio */
+    font-family: 'MesloLGS NF', monospace; /* Font family */
+    backdrop-filter: blur(8px); /* Blur effect for background */
+    transition: bottom 0.3s ease-in-out; /* Smooth transition for visibility */
+}
+
+footer.visible {
+    bottom: 100; /* Bring footer into view when visible */
+}
+
+.copyleft {
+    display: inline-block;
+    transform: rotate(180deg); /* Rotate if needed */
+    font-size: 1.0em; /* Adjust size as needed */
+    vertical-align: middle; /* Align with text */
+    margin-right: 5px; /* Space between symbol and text */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    footer {
+        padding: 20px; /* Adjust padding for smaller screens */
+        font-size: calc(0.9rem / var(--golden-ratio)); /* Smaller font size on mobile */
+        background-color: #111111; /* Darker background for mobile if desired */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--gutter);
+    }
+
+    h1 { font-size: calc(1.618rem * 1.414); }
+    h2 { font-size: calc(1.618rem * 1.236); }
+    h3 { font-size: calc(1.618rem * 1.138); }
+    h4 { font-size: 1.618rem; }
+    h5 { font-size: calc(1.618rem / 1.138); }
+    h6 { font-size: calc(1.618rem / 1.236); }
+
+    p {
+        font-size: calc(1rem / var(--golden-ratio));
+        padding: 0 var(--padding);
+    }
+
+    .logo-container {
+        height: 50vh;
+    }
+
+    .centered-logo {
+        max-height: 40vh;
+    }
+
+    .markdown-content {
+        padding: var(--padding);
+    }
+}
+
+/* styles.css */
+
+@font-face {
+    font-family: 'MesloLGS NF';
+    src: url('MesloLGS-NF-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MesloLGS NF';
+    src: url('MesloLGS-NF-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'MesloLGS NF';
+    src: url('MesloLGS-NF-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MesloLGS NF';
+    src: url('MesloLGS-NF-Bold-Italic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+:root {
+    --github-dark: #0d1117;
+    --github-text: #c9d1d9;
+    --github-red: #ff2e2e;
+    --github-link: #58a6ff;
+    --gutter: 20px;
+    --padding: 12px;
+    --golden-ratio: 1.618;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'MesloLGS NF', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background-color: var(--github-dark);
+    color: var(--github-text);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gutter);
+    padding: var(--gutter);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding) 0;
+    background-color: rgba(13, 17, 23, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    height: 100px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: calc(var(--gutter) * var(--golden-ratio));
+}
+
+nav ul li a {
+    color: var(--github-red);
+    text-decoration: none;
+    font-family: 'MesloLGS NF', monospace;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--github-link);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--github-red);
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+main {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gutter);
+    min-height: calc(100vh - 100px);
+    padding-top: 100px;
+}
+
+.content {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+    width: 100%;
+}
+
+.centered-logo {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.markdown-content {
+    grid-column: 2 / 12;
+    padding: calc(var(--padding) * var(--golden-ratio));
+    background-color: rgba(13, 17, 23, 0.7);
+    border-radius: 10px;
+    margin-top: calc(var(--gutter) * var(--golden-ratio));
+    margin-bottom: calc(var(--gutter) * var(--golden-ratio));
+    backdrop-filter: blur(5px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'MesloLGS NF', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--github-red);
+    margin-bottom: var(--gutter);
+}
+
+h1 { font-size: calc(1.618rem * 1.618); }
+h2 { font-size: calc(1.618rem * 1.414); }
+h3 { font-size: calc(1.618rem * 1.236); }
+h4 { font-size: calc(1.618rem * 1.138); }
+h5 { font-size: 1.618rem; }
+h6 { font-size: calc(1.618rem / 1.138); }
+
+p {
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto var(--gutter);
+    color: var(--github-text);
+}
+
+a {
+    color: var(--github-link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul, ol {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto var(--gutter);
+    padding-left: calc(var(--gutter) * var(--golden-ratio));
+}
+
+li {
+    margin-bottom: calc(var(--padding) * var(--golden-ratio));
+}
+
+blockquote {
+    border-left: 4px solid var(--github-red);
+    padding-left: var(--padding);
+    margin-left: 0;
+    font-style: italic;
+    color: var(--github-text);
+}
+
+code {
+    font-family: 'MesloLGS NF', monospace;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: calc(var(--padding) / 2) var(--padding);
+    border-radius: 3px;
+}
+
+pre {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: var(--padding);
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--github-text);
+    margin: calc(var(--gutter) * var(--golden-ratio)) 0;
+}
+
+footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--gutter) 0;
+    background-color: rgba(13, 17, 23, 0.95);
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    font-size: calc(1rem / var(--golden-ratio));
+    font-family: 'MesloLGS NF', monospace;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    transition: bottom 0.3s ease-in-out;
+}
+
+footer.visible {
+    bottom: 0;
+}
+
+.copyleft {
+    display: inline-block;
+    transform: rotate(180deg);
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    main {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .markdown-content {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--gutter);
+    }
+
+    h1 { font-size: calc(1.618rem * 1.414); }
+    h2 { font-size: calc(1.618rem * 1.236); }
+    h3 { font-size: calc(1.618rem * 1.138); }
+    h4 { font-size: 1.618rem; }
+    h5 { font-size: calc(1.618rem / 1.138); }
+    h6 { font-size: calc(1.618rem / 1.236); }
+
+    p {
+        font-size: calc(1rem / var(--golden-ratio));
+        padding: 0 var(--padding);
+    }
+
+    .logo-container {
+        height: 50vh;
+    }
+
+    .centered-logo {
+        max-height: 40vh;
+    }
+
+    .markdown-content {
+        padding: var(--padding);
+    }
+}
+
