@@ -116,7 +116,7 @@
 
                 if (scrollTop > lastScrollTop && !footerVisible && (windowHeight + scrollTop >= documentHeight - 100)) {
                     footer.classList.add('visible');
-                    footerVisible = true;
+                    footerVisible = false;
                 } else if (scrollTop < lastScrollTop && footerVisible) {
                     footer.classList.remove('visible');
                     footerVisible = false;
